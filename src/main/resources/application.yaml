@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: config-server
+
+application:
+  title: @project.name@
+  version: @project.version@
+  author: Mitocode
+
+
+CUSTOM:
+  SERVER:
+    PORT: 9000

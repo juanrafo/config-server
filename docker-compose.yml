@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  config-server:
+    image: alpine/java:21-jdk
+    container_name: config-server
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    volumes:
+      - ./target/config-server-0.0.1-SNAPSHOT.jar:/app/config-server-v1.jar
+    command: ["java", "-jar", "/app/config-server-v1.jar"]
